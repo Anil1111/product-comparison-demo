@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container mt-2" id="product-listing" v-cloak>
+    <div class="row justify-content-center">
+        <div v-for="(product, index) in products" v-cloak>
+            <div class="col">
+                <img :src="product.PrimaryImage" alt="product image" />
+                <p>
+                    <strong>{{product.Sku}}</strong>
+                </p>
+                <span>{{product.MarketingName}}</span>
+                <ul>
+                    <li>Size: {{product.Size}}</li>
+                    <li>Calories: {{product.Calories}}</li>
+                    <li>Sugar: {{product.Sugar}}</li>
+                </ul>
+                <div>
+                    <div>
+                        <div>
+                            <input type="checkbox" :name="product.Sku" :id="'compare_' + product.Sku" :checked="isCompareCheckedForSku(product.Sku)"
+                                   :disabled="isCompareDisabledForSku(product.Sku)" v-on:change="toggleCompare($event)">
+                            <label :for="'compare_' + product.Sku">Add to compare</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="compare-pop-up" v-if="selectedProducts.length > 0" v-cloak>
+    <div class="col-12">
+        <div class="float-right">
+            <a :href="'/Home/Compare' + selectedProductsQueryString" class="btn btn-primary">Compare</a>
+        </div>
+    </div>
+    <div class="container-fluid pt-30">
+        <div class="row">
+            <div class="col-12">
+                <div class="row" v-cloak>
+                    <div v-for="(product, index) in selectedProducts" class="col-3">
+                        <div class="flex-column justify-content-center">
+                            <img class="float-left" :src="selectedProducts[index].thumb" alt="Product Thumbnail"/>
+                            <strong class="pl-2">{{selectedProducts[index].sku}}</strong>
+                            <span class="g-hover-cursor-pointer float-right" aria-label="Remove Product" title="Remove Product" v-on:click="removeProduct(selectedProducts[index].sku)">
+                                X
+                            </span>
+                            <span class="row pl-2">{{selectedProducts[index].marketing_name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/src/product-listing.js")
+@Scripts.Render("~/Scripts/src/compare-pop-up.js")

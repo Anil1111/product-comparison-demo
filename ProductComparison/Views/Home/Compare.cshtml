@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Comparison";
+}
+
+<div id="compare-landing">
+    <div class="container-fluid mt-2">
+        <h2>@ViewBag.Title</h2>
+        <div class="row pt-30 justify-content-center">
+            <div class="col-sm-1 pt-150">
+                <p class="pt-2"><strong>Sku</strong></p>
+                <p class="pt-2"><strong>Name</strong></p>
+                <p class="pt-2"><strong>Size</strong></p>
+                <p class="pt-2"><strong>Calories</strong></p>
+                <p class="pt-2"><strong>Carbohydrate</strong></p>
+                <p class="pt-2"><strong>Cholesterol</strong></p>
+                <p class="pt-2"><strong>Fat</strong></p>
+                <p class="pt-2"><strong>Fiber</strong></p>
+                <p class="pt-2"><strong>Protein</strong></p>
+                <p class="pt-2"><strong>Sodium</strong></p>
+                <p class="pt-2"><strong>Sugar</strong></p>
+            </div>
+            <div class="col-11 w-100">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3" v-for="product in selectedProducts">
+                                <img :src="product.PrimaryImage" alt="product image" />
+                                <p class="pt-2" align="center">{{product.Sku}}</p>
+                                <p class="pt-2" align="center">{{product.MarketingName}}</p>
+                                <p class="pt-2" align="center">{{product.Size}}</p>
+                                <p class="pt-2" align="center">{{product.Calories}}</p>
+                                <p class="pt-2" align="center">{{product.Carbohydrate}}</p>
+                                <p class="pt-2" align="center">{{product.Cholesterol}}</p>
+                                <p class="pt-2" align="center">{{product.Fat}}</p>
+                                <p class="pt-2" align="center">{{product.Fiber}}</p>
+                                <p class="pt-2" align="center">{{product.Protein}}</p>
+                                <p class="pt-2" align="center">{{product.Sodium}}</p>
+                                <p class="pt-2" align="center">{{product.Sugar}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/src/compare-landing.js")
