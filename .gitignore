@@ -299,3 +299,5 @@ __pycache__/
 /ProductComparison/Content/bootstrap-reboot.css
 /ProductComparison/Content/bootstrap-grid.css.map
 /ProductComparison/Content/bootstrap-grid.css
+/ProductComparison/Scripts/jquery.validate.unobtrusive.min.js
+/ProductComparison/Scripts/jquery.validate.unobtrusive.js
