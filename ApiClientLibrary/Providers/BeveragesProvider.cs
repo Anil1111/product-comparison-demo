@@ -9,7 +9,7 @@ using ApiClientLibrary.Serialization;
 
 namespace ApiClientLibrary.Providers
 {
-    public sealed class BeverageProvider : ProductProviderBase<Beverages>
+    public sealed class BeveragesProvider : ProductProviderBase<Beverages>
     {
         private readonly Encoding _encoding = Encoding.UTF8;
         private const string CacheKey = "beverages";

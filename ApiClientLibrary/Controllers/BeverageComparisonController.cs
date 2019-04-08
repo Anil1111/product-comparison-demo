@@ -13,7 +13,7 @@ namespace ApiClientLibrary.Controllers
         [HttpGet, Route("beverage")]
         public IHttpActionResult GetBeverage(string sku)
         {
-            var beverageProvider = new BeverageProvider();
+            var beverageProvider = new BeveragesProvider();
 
             var beverages = beverageProvider.Get();
 
@@ -38,7 +38,7 @@ namespace ApiClientLibrary.Controllers
             }
 
             var productComparisonPageDto = new BeverageComparison();
-            var beverageProvider = new BeverageProvider();
+            var beverageProvider = new BeveragesProvider();
 
             var beverages = beverageProvider.Get();
 
