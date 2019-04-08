@@ -9,7 +9,7 @@ namespace ApiClientLibrary.DTOs
         {
             return new BeverageComparisonPartialDto
             {
-                MarketingName = beverage.GetProperty(dto => ((BeverageComparisonProductDto)dto).MarketingName),
+                MarketingName = beverage.GetProperty(dto => ((BeverageComparisonPartialDto)dto).MarketingName),
                 Sku = beverage.Sku,
                 Thumbnail = string.IsNullOrWhiteSpace(beverage.GetProperty(dto => ((BeverageComparisonPartialDto)dto).Thumbnail))
                     ? Constants.ImagePaths.DefaultThumbnailImage : beverage.GetProperty(dto => ((BeverageComparisonPartialDto)dto).Thumbnail)
