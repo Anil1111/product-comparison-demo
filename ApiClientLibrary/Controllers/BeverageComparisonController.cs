@@ -24,9 +24,9 @@ namespace ApiClientLibrary.Controllers
                 return NotFound();
             }
 
-            var productComparisonDto = (BeverageComparisonPartialDto)beverage;
+            var beverageComparisonPartialDto = (BeverageComparisonPartialDto)beverage;
 
-            return Json(productComparisonDto);
+            return Json(beverageComparisonPartialDto);
         }
         
         [HttpGet, Route("beverages")]
@@ -37,7 +37,7 @@ namespace ApiClientLibrary.Controllers
                 return NotFound();
             }
 
-            var productComparisonPageDto = new BeverageComparison();
+            var beverageComparison = new BeverageComparison();
             var beverageProvider = new BeveragesProvider();
 
             var beverages = beverageProvider.Get();
@@ -47,11 +47,11 @@ namespace ApiClientLibrary.Controllers
                 var beverage = BeverageHelper.FindBeverage(beverages, sku);
 
                 if (beverage == null) continue;
-                var productComparisonFullDto = (BeverageComparisonProductDto)beverage;
-                productComparisonPageDto.Beverages.Add(productComparisonFullDto);
+                var beverageComparisonProductDto = (BeverageComparisonProductDto)beverage;
+                beverageComparison.Beverages.Add(beverageComparisonProductDto);
             }
 
-            return Json(productComparisonPageDto);
+            return Json(beverageComparison);
         }
     }
 }
