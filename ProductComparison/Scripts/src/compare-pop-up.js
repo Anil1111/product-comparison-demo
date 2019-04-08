@@ -23,7 +23,7 @@ window.compare = new Vue({
                 return;
             }
 
-            this.$http.get(`/api/compare/product?sku=${sku}`)
+            this.$http.get(`/api/compare/beverage?sku=${sku}`)
                 .then(response => {
                     var product = response.data;
                     this.selectedProducts.push({

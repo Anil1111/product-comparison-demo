@@ -2,11 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="container mt-2" id="product-listing" v-cloak>
+<div class="container mt-2" id="beverage-listing" v-cloak>
     <div class="row justify-content-center">
-        <div v-for="(product, index) in products" v-cloak>
+        <div v-for="(product, index) in beverages" :key="product.Sku" v-cloak>
             <div class="col">
-                <img :src="product.PrimaryImage" alt="product image" />
+                <img :src="product.PrimaryImage" :alt="product.Warning" />
                 <p>
                     <strong>{{product.Sku}}</strong>
                 </p>
@@ -14,7 +14,9 @@
                 <ul>
                     <li>Size: {{product.Size}}</li>
                     <li>Calories: {{product.Calories}}</li>
-                    <li>Sugar: {{product.Sugar}}</li>
+                    <li>Carbohydrate: {{product.Carbohydrate}}</li>
+                    <li v-if="product.Alcohol">Alcohol: {{product.Alcohol}}</li>
+                    <li v-if="product.Caffeine">Caffeine: {{product.Caffeine}}</li>
                 </ul>
                 <div>
                     <div>
@@ -56,5 +58,5 @@
     </div>
 </div>
 
-@Scripts.Render("~/Scripts/src/product-listing.js")
+@Scripts.Render("~/Scripts/src/beverage-listing.js")
 @Scripts.Render("~/Scripts/src/compare-pop-up.js")

@@ -1,6 +1,7 @@
 ﻿{
-  "products": [
+  "sodas": [
     {
+      "caffeine": "34mg", 
       "calories": "140",
       "carbohydrate": "39g",
       "cholesterol": "0mg",
@@ -16,6 +17,7 @@
       "thumbnail": ""
     },
     {
+      "caffeine": "63mg",
       "calories": "150",
       "carbohydrate": "41g",
       "cholesterol": "0mg",
@@ -31,6 +33,7 @@
       "thumbnail": ""
     },
     {
+      "caffeine": "41mg",
       "calories": "150",
       "carbohydrate": "39.6g",
       "cholesterol": "0mg",
@@ -46,6 +49,7 @@
       "thumbnail": ""
     },
     {
+      "caffeine": "91mg",
       "calories": "174",
       "carbohydrate": "46.3g",
       "cholesterol": "0mg",
@@ -59,36 +63,40 @@
       "sodium": "63mg",
       "sugar": "46.3g",
       "thumbnail": ""
-    },
+    }
+  ],
+  "beers": [
     {
-      "calories": "150",
-      "carbohydrate": "38.9g",
+      "alcohol": "13.9g",
+      "calories": "145",
+      "carbohydrate": "11g",
       "cholesterol": "0mg",
       "fat": "0g",
       "fiber": "0g",
-      "marketing_name": "Pibb Xtra",
+      "marketing_name": "Budweiser",
       "primary_image": "",
-      "protein": "0g",
+      "protein": "1.3g",
       "size": "12 fl. oz.",
       "sku": "5",
-      "sodium": "45mg",
-      "sugar": "38.9g",
+      "sodium": "11mg",
+      "sugar": "0g",
       "thumbnail": ""
     },
     {
-      "calories": "174",
-      "carbohydrate": "46.9g",
+      "alcohol": "11.4g",
+      "calories": "110",
+      "carbohydrate": "6.6g",
       "cholesterol": "0mg",
       "fat": "0g",
       "fiber": "0g",
-      "marketing_name": "A&W Root Beer",
+      "marketing_name": "Bud Light",
       "primary_image": "",
-      "protein": "0g",
+      "protein": "0.9g",
       "size": "12 fl. oz.",
       "sku": "6",
-      "sodium": "81mg",
-      "sugar": "45.1",
+      "sodium": "0mg",
+      "sugar": "0g",
       "thumbnail": ""
     }
-  ]
+  ] 
 }

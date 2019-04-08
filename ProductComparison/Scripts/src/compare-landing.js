@@ -5,15 +5,14 @@
             mode: "history"
         }),
         data: {
-            selectedProducts: []
+            selectedBeverages: []
         },
         mounted: function () {
             var query = this.$route.fullPath.replace(this.$route.path, "");
 
-            this.$http.get(`/api/compare/products${query}`)
+            this.$http.get(`/api/compare/beverages${query}`)
                 .then(response => {
-                    console.log(response);
-                    this.selectedProducts = response.data.Products;
+                    this.selectedBeverages = response.data.Beverages;
                 }).catch((error) => {
                     console.log(error);
                 });

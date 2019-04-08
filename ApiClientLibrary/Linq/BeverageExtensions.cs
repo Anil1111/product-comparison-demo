@@ -6,9 +6,9 @@ using ApiClientLibrary.Models;
 
 namespace ApiClientLibrary.Linq
 {
-    internal static class ProductExtensions
+    internal static class BeverageExtensions
     {
-        public static T GetProperty<T>(this Product product, Expression<Func<ProductComparisonPartialDto, T>> predicate)
+        public static T GetProperty<T>(this Beverage beverage, Expression<Func<BeverageComparisonPartialDto, T>> predicate)
             where T : IConvertible
         {
             if (!(predicate.Body is MemberExpression memberExpression))
@@ -16,17 +16,17 @@ namespace ApiClientLibrary.Linq
                 return default(T);
             }
 
-            var property = product.GetType().GetProperty(memberExpression.Member.Name);
+            var property = beverage.GetType().GetProperty(memberExpression.Member.Name);
 
             if (property == null)
             {
                 return default(T);
             }
 
-            return (T)Convert.ChangeType(property.GetValue(product), typeof(T));
+            return (T)Convert.ChangeType(property.GetValue(beverage), typeof(T));
         }
 
-        public static T GetProperty<T>(this Product product, Expression<Func<ProductComparisonProductDto, T>> predicate)
+        public static T GetProperty<T>(this Beverage beverage, Expression<Func<BeverageComparisonProductDto, T>> predicate)
             where T : IConvertible
         {
             if (!(predicate.Body is MemberExpression memberExpression))
@@ -34,17 +34,17 @@ namespace ApiClientLibrary.Linq
                 return default(T);
             }
 
-            var property = product.GetType().GetProperty(memberExpression.Member.Name);
+            var property = beverage.GetType().GetProperty(memberExpression.Member.Name);
 
             if (property == null)
             {
                 return default(T);
             }
 
-            return (T)Convert.ChangeType(property.GetValue(product), typeof(T));
+            return (T)Convert.ChangeType(property.GetValue(beverage), typeof(T));
         }
 
-        public static T GetProperty<T>(this Product product, Expression<Func<ProductListItemDto, T>> predicate)
+        public static T GetProperty<T>(this Beverage beverage, Expression<Func<BeverageListItemDto, T>> predicate)
             where T : IConvertible
         {
             if (!(predicate.Body is MemberExpression memberExpression))
@@ -52,14 +52,14 @@ namespace ApiClientLibrary.Linq
                 return default(T);
             }
 
-            var property = product.GetType().GetProperty(memberExpression.Member.Name);
+            var property = beverage.GetType().GetProperty(memberExpression.Member.Name);
 
             if (property == null)
             {
                 return default(T);
             }
 
-            return (T)Convert.ChangeType(property.GetValue(product), typeof(T));
+            return (T)Convert.ChangeType(property.GetValue(beverage), typeof(T));
         }
     }
 }

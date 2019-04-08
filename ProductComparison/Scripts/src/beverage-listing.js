@@ -1,11 +1,11 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
-    var productListing = new Vue({
-        el: '#product-listing',
+    var beverageListing = new Vue({
+        el: '#beverage-listing',
         data: {
-            products: null
+            beverages: null
         },
         mounted() {
-            this.loadProducts();
+            this.loadBeverages();
         },
         methods: {
             isCompareDisabledForSku(sku) {
@@ -39,10 +39,11 @@
             isMultipleOfThree(number) {
                 return (number) % 3 === 0;
             },
-            loadProducts() {
-                this.$http.get("/api/product-listing/all")
+            loadBeverages() {
+                this.$http.get("/api/beverage-listing/all")
                     .then(response => {
-                        this.products = response.data.Products;
+                        this.beverages = response.data.Beverages;
+                        this.beverages = this.beverages.sort(compare);
                     })
                     .catch((error) => {
                         console.log(error);
@@ -59,4 +60,17 @@
             }
         }
     });
+
+    function compare(a, b) {
+        var skuA = a.Sku.toUpperCase();
+        var skuB = b.Sku.toUpperCase();
+
+        var comparison = 0;
+        if (skuA > skuB) {
+            comparison = 1;
+        } else if (skuA < skuB) {
+            comparison = -1;
+        }
+        return comparison;
+    }
 });

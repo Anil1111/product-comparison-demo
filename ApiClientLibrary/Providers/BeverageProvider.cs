@@ -9,29 +9,29 @@ using ApiClientLibrary.Serialization;
 
 namespace ApiClientLibrary.Providers
 {
-    public sealed class ProductProvider
+    public sealed class BeverageProvider
     {
         private readonly Encoding _encoding = Encoding.UTF8;
-        private const string CacheKey = "products";
+        private const string CacheKey = "beverages";
 
-        public ProductSet GetProductListing()
+        public Beverages GetBeverages()
         {
-            ProductSet products;
+            Beverages beverages;
             var cache = MemoryCache.Default;
 
             if (cache.Contains(CacheKey))
             {
-                products = (ProductSet)cache.Get(CacheKey);
+                beverages = (Beverages)cache.Get(CacheKey);
             }
             else
             {
-                var path = HostingEnvironment.MapPath(@"~\App_Data\products.json");
-                var serializationProvider = new JsonSerializationProvider<ProductSet>(_encoding);
+                var path = HostingEnvironment.MapPath(@"~\App_Data\beverages.json");
+                var serializationProvider = new JsonSerializationProvider<Beverages>(_encoding);
 
                 using (var reader = new StreamReader(path ?? throw new InvalidOperationException()))
                 {
                     var json = reader.ReadToEnd();
-                    products = serializationProvider.Deserialize(json);
+                    beverages = serializationProvider.Deserialize(json);
                 }
 
                 var cacheItemPolicy = new CacheItemPolicy
@@ -39,10 +39,10 @@ namespace ApiClientLibrary.Providers
                     AbsoluteExpiration = DateTime.Now.AddHours(1.0)
                 };
 
-                cache.Add(CacheKey, products, cacheItemPolicy);
+                cache.Add(CacheKey, beverages, cacheItemPolicy);
             }
             
-            return products;
+            return beverages;
         }
     }
 }
