@@ -29,7 +29,7 @@ namespace ApiClientLibrary.DTOs
         {
         }
 
-        public string Calories { get; private set; }
+        public int Calories { get; private set; }
         public string Carbohydrate { get; private set; }
         public string Cholesterol { get; private set; }
         public string Fat { get; private set; }
