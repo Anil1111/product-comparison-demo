@@ -74,6 +74,8 @@
     <Compile Include="Models\Soda.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\BeverageProvider.cs" />
+    <Compile Include="Providers\IProductProvider.cs" />
+    <Compile Include="Providers\ProductProviderBase.cs" />
     <Compile Include="Serialization\ISerializationProvider.cs" />
     <Compile Include="Serialization\JsonSerializationProvider.cs" />
     <Compile Include="Serialization\SerializationProviderBase.cs" />

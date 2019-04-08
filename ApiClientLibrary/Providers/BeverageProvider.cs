@@ -9,12 +9,12 @@ using ApiClientLibrary.Serialization;
 
 namespace ApiClientLibrary.Providers
 {
-    public sealed class BeverageProvider
+    public sealed class BeverageProvider : ProductProviderBase<Beverages>
     {
         private readonly Encoding _encoding = Encoding.UTF8;
         private const string CacheKey = "beverages";
 
-        public Beverages GetBeverages()
+        public override Beverages Get()
         {
             Beverages beverages;
             var cache = MemoryCache.Default;

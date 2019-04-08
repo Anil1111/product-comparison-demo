@@ -13,10 +13,10 @@ namespace ApiClientLibrary.Controllers
         [HttpGet, Route("all")]
         public IHttpActionResult GetBeverageListing()
         {
-            var productProvider = new BeverageProvider();
+            var beverageProvider = new BeverageProvider();
             var beverageListing = new BeverageListing();
 
-            var beverages = productProvider.GetBeverages();
+            var beverages = beverageProvider.Get();
 
             if (beverages.Beers.Any())
             {

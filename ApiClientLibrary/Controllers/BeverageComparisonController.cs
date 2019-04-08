@@ -13,9 +13,9 @@ namespace ApiClientLibrary.Controllers
         [HttpGet, Route("beverage")]
         public IHttpActionResult GetBeverage(string sku)
         {
-            var productProvider = new BeverageProvider();
+            var beverageProvider = new BeverageProvider();
 
-            var beverages = productProvider.GetBeverages();
+            var beverages = beverageProvider.Get();
 
             var beverage = BeverageHelper.FindBeverage(beverages, sku);
 
@@ -38,9 +38,9 @@ namespace ApiClientLibrary.Controllers
             }
 
             var productComparisonPageDto = new BeverageComparison();
-            var productProvider = new BeverageProvider();
+            var beverageProvider = new BeverageProvider();
 
-            var beverages = productProvider.GetBeverages();
+            var beverages = beverageProvider.Get();
 
             foreach (var sku in skus)
             {
